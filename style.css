@@ -42,8 +42,42 @@
   text-align: center;
 }
 
-.card h1 {
+.card h2 + h1, .card h2 {
   margin-top: 20px;
+}
+
+.search-wrapper {
+  margin-top: 40px;
+  margin-left: 50%;
+  
+  transform: translateX(-50%);
+  
+  width: 90%;
+  border-bottom: 1px solid black;
+  
+  display: flex;
+  
+  align-items: center;
+  justify-content: space-between;
+  
+  padding-bottom: 5px;
+}
+
+#search-box {
+  border: none;
+  outline: none;
+  
+  width: 95%;
+  
+  border-radius: 10px;
+  
+  padding: 5px;
+  
+  transition: background 0.3s;
+}
+
+#search-box:hover {
+  background: #efefef;
 }
 
 @keyframes gradient {
