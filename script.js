@@ -1,6 +1,7 @@
 const good = qs("#good");
 const hour = qs("#hour");
 const date = qs("#date");
+const settings = qs("#settings");
 
 //const goods = ["Good Morning.", "Good Afternoon.", "Good Evening."];
 const daysWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
