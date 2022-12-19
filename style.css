@@ -202,16 +202,16 @@ li.option a {
   
   padding: 5px;
   border-radius: 10px;
+  
+  transition: background 0.3s;
 }
 
 li.option a.selected {
-  background: #F17C58;
+  /*background: #F17C58;*/
   box-shadow: 0 0 20px rgba(0,0,0,30%);
+  
+  animation: bg 18s infinite alternate;
 }
-
-li.option a.selected * [
-  color: #fff;
-]
 
 li.option a:hover:not(.selected) {
   background: #efefef;
@@ -232,4 +232,30 @@ li.option {
 @keyframes gradient {
   0% {background-position: 0%}
   100% {background-position: 100%}
+}
+
+@keyframes bg {
+  0% {
+    background: #F17C58;
+  }
+  
+  16% {
+    background: #E94584;
+  }
+  
+  32% {
+    background: #24AADB;
+  }
+  
+  48% {
+    background: #27DBB1;
+  }
+  
+  64% {
+    background: #FFDC18;
+  }
+  
+  100% {
+    background: #FF3706;
+  }
 }
