@@ -210,7 +210,7 @@ li.option a.selected {
   /*background: #F17C58;*/
   box-shadow: 0 0 20px rgba(0,0,0,30%);
   
-  animation: bg 18s infinite alternate;
+  animation: bg 16s linear infinite alternate;
 }
 
 li.option a:hover:not(.selected) {
