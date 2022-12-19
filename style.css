@@ -138,6 +138,18 @@ a, a * {
   
   background: white;
   z-index: 100;
+  
+  animation: settings 0.5s infinite alternate;
+}
+
+@keyframes settings {
+  from {
+    top: -70vh;
+  }
+  
+  to {
+    top: 0;
+  }
 }
 
 @keyframes gradient {
