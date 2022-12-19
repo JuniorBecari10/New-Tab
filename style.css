@@ -153,7 +153,13 @@ ul {
   background: white;
   z-index: 100;
   
+  text-align: center;
+  
   transition: top 0.5s;
+}
+
+#settings-menu h2 {
+  margin-top: 15px;
 }
 
 #close {
@@ -168,13 +174,55 @@ ul {
   transition: background 0.3s;
 }
 
+.content-wrapper {
+  margin-top: 30px;
+  
+  display: flex;
+  align-items: center;
+  
+  width: 100%;
+  height: 80%;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+.opt-wr {
+  width: 30%;
+  height: 100%;
+  
+  border-right: 1px solid black;
+}
+
 li.option a {
   display: flex;
   align-items: center;
+  
+  padding: 5px;
+  border-radius: 10px;
+}
+
+li.option a.selected {
+  background: #F17C58;
+  box-shadow: 0 0 20px rgba(0,0,0,30%);
+}
+
+li.option a.selected * [
+  color: #fff;
+]
+
+li.option a:hover:not(.selected) {
+  background: #efefef;
 }
 
 li.option a span {
   margin-left: 10px;
+}
+
+li.option {
+  margin: 10px;
 }
 
 .set-active {
