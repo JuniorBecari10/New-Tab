@@ -13,6 +13,10 @@ a, a * {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 .wrapper {
   width: 100%;
   height: 100%;
@@ -122,6 +126,15 @@ a, a * {
   
   left: 20px;
   top: 20px;
+  
+  padding: 5px;
+  border-radius: 10px;
+  
+  transition: background 0.3s;
+}
+
+#settings:hover, #close:hover {
+  background: #efefef;
 }
 
 #settings-menu {
@@ -148,6 +161,20 @@ a, a * {
   
   top: 10px;
   right: 10px;
+  
+  padding: 5px;
+  border-radius: 10px;
+  
+  transition: background 0.3s;
+}
+
+li.option a {
+  display: flex;
+  align-items: center;
+}
+
+li.option a span {
+  margin-left: 10px;
 }
 
 .set-active {
