@@ -130,6 +130,7 @@ a, a * {
   
   position: absolute;
   left: 50%;
+  top: -70vh;
   
   transform: translateX(-50%);
   
@@ -139,17 +140,18 @@ a, a * {
   background: white;
   z-index: 100;
   
-  animation: settings 0.5s infinite alternate;
+  transition: top 0.5s;
 }
 
-@keyframes settings {
-  from {
-    top: -70vh;
-  }
+#close {
+  position: absolute;
   
-  to {
-    top: 0;
-  }
+  top: 10px;
+  right: 10px;
+}
+
+.set-active {
+  top: 0 !important;
 }
 
 @keyframes gradient {

@@ -2,6 +2,10 @@ const good = qs("#good");
 const hour = qs("#hour");
 const date = qs("#date");
 const settings = qs("#settings");
+const settingsMenu = qs("#settings-menu");
+const closeBtn = qs("#close");
+
+var settingsOn = false;
 
 //const goods = ["Good Morning.", "Good Afternoon.", "Good Evening."];
 const daysWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -28,6 +32,20 @@ function update() {
    good.innerHTML = "Good Evening.";
    
    setTimeout(function () { update(); }, 1000);
+}
+
+settings.onclick = (e) => {
+  toggleSettings(e);
+}
+
+closeBtn.onclick = (e) => {
+  toggleSettings(e);
+}
+
+function toggleSettings(e) {
+  e.preventDefault();
+  
+  settingsMenu.classList.toggle("set-active");
 }
 
 function qs(q) {
