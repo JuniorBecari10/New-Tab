@@ -5,6 +5,8 @@ const settings = qs("#settings");
 const settingsMenu = qs("#settings-menu");
 const closeBtn = qs("#close");
 
+const settingsOpts = qsAll("ul li a");
+
 var settingsOn = false;
 
 //const goods = ["Good Morning.", "Good Afternoon.", "Good Evening."];
@@ -23,24 +25,35 @@ function update() {
   let hnow = d.getHours(); // hour now
 
   if (hnow >= 0 && hnow <= 12)
-   good.innerHTML = "Good Morning.";
+   good.innerHTML = "Good morning.";
 
   if (hnow >= 12 && hnow <= 18)
-   good.innerHTML = "Good Afternoon.";
+   good.innerHTML = "Good afternoon.";
 
   if (hnow >= 18)
-   good.innerHTML = "Good Evening.";
+   good.innerHTML = "Good evening.";
    
    setTimeout(function () { update(); }, 1000);
 }
 
 settings.onclick = (e) => {
   toggleSettings(e);
-}
+};
 
 closeBtn.onclick = (e) => {
   toggleSettings(e);
-}
+};
+
+settingsOpts.forEach((b) => {
+  b.onclick = (e) => {
+    // clear
+    settingsOpts.forEach((bb) => {
+      bb.classList.remove("selected");
+    });
+    
+    b.classList.add("selected");
+  };
+});
 
 function toggleSettings(e) {
   e.preventDefault();
@@ -50,4 +63,8 @@ function toggleSettings(e) {
 
 function qs(q) {
   return document.querySelector(q)
+}
+
+function qsAll(q) {
+  return document.querySelectorAll(q)
 }
