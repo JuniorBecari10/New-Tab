@@ -7,13 +7,24 @@ const closeBtn = qs("#close");
 
 const settingsOpts = qsAll("ul li a");
 
+const contents = qsAll(".cnt");
+
 var settingsOn = false;
 
 //const goods = ["Good Morning.", "Good Afternoon.", "Good Evening."];
 const daysWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+setup();
 update();
+
+function setup() {
+  contents.forEach((b, i) => {
+    if (i == 0) return;
+    
+    contents[i].classList.add("d-none");
+  });
+}
 
 function update() {
   var d = new Date();
@@ -44,14 +55,16 @@ closeBtn.onclick = (e) => {
   toggleSettings(e);
 };
 
-settingsOpts.forEach((b) => {
+settingsOpts.forEach((b, i) => {
   b.onclick = (e) => {
     // clear
-    settingsOpts.forEach((bb) => {
+    settingsOpts.forEach((bb, ii) => {
       bb.classList.remove("selected");
+      contents[ii].classList.add("d-none");
     });
     
     b.classList.add("selected");
+    contents[i].classList.remove("d-none");
   };
 });
 

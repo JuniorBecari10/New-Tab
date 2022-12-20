@@ -229,6 +229,15 @@ li.option {
   top: 0 !important;
 }
 
+.content > div {
+  width: 100%;
+  height: 100%;
+}
+
+.d-none {
+  display: none;
+}
+
 @keyframes gradient {
   0% {background-position: 0%}
   100% {background-position: 100%}
