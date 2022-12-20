@@ -84,7 +84,8 @@ ul {
   transition: background 0.3s;
 }
 
-#search-box:hover {
+#search-box:hover,
+a#add-fav:hover {
   background: #efefef;
 }
 
@@ -244,6 +245,9 @@ a#add-fav {
   bottom: 50px;
   
   padding: 10px;
+  border-radius: 10px;
+  
+  transition: background 0.3s;
 }
 
 @keyframes gradient {

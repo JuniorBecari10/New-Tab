@@ -4,6 +4,7 @@ const date = qs("#date");
 const settings = qs("#settings");
 const settingsMenu = qs("#settings-menu");
 const closeBtn = qs("#close");
+const addFav = qs("#add-fav");
 
 const settingsOpts = qsAll("ul li a");
 
@@ -59,6 +60,8 @@ closeBtn.onclick = (e) => {
 
 settingsOpts.forEach((b, i) => {
   b.onclick = (e) => {
+    e.preventDefault();
+    
     // clear
     settingsOpts.forEach((bb, ii) => {
       bb.classList.remove("selected");
@@ -69,6 +72,10 @@ settingsOpts.forEach((b, i) => {
     contents[i].classList.remove("d-none");
   };
 });
+
+addFav.onclick = (e) => {
+  e.preventDefault();
+};
 
 function toggleSettings(e) {
   e.preventDefault();
