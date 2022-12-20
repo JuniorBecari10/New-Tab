@@ -90,7 +90,7 @@ ul {
 
 .favorites {
   width: 90%;
-  height: 60%;
+  height: 50%;
   
   background: #efefef;
   
@@ -236,6 +236,14 @@ li.option {
 
 .d-none {
   display: none;
+}
+
+a#add-fav {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  
+  padding: 10px;
 }
 
 @keyframes gradient {
