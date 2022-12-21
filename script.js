@@ -5,10 +5,11 @@ const settings = qs("#settings");
 const settingsMenu = qs("#settings-menu");
 const closeBtn = qs("#close");
 const addFav = qs("#add-fav");
-
 const settingsOpts = qsAll("ul li a");
-
 const contents = qsAll(".cnt");
+const selectSearch = qs("#search-eng-sel");
+const searchBtn = qs("#search-btn");
+const searchBox = qs("#search-box");
 
 var settingsOn = false;
 var favorites = [];
@@ -75,6 +76,22 @@ settingsOpts.forEach((b, i) => {
 addFav.onclick = (e) => {
   e.preventDefault();
 };
+
+searchBtn.onclick = (e) => {
+  e.preventDefault();
+  
+  search(searchBox.value, selectSearch.value);
+};
+
+document.addEventListener("keydown", (e) => {
+  if (e.keyCode == 13) {
+    search(searchBox.value, selectSearch.value);
+    console.log("a");
+  }
+  else if (e.keyCode == 27) {
+    settingsMenu.classList.remove("set-active");
+  }
+});
 
 function toggleSettings(e) {
   e.preventDefault();
