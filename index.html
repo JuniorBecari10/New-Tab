@@ -23,7 +23,9 @@
       <h3 id="date">xxx, xx 00, 0000</h3>
       
       <div class="search-wrapper">
-        <box-icon name='search'></box-icon>
+        <a href="" id="search">
+          <box-icon name='search'></box-icon>
+        </a>
         <input type="text" id="search-box" placeholder="Search or enter web address...">
       </div>
       
@@ -33,7 +35,7 @@
     </div>
     
     <div id="settings-menu">
-      <a href="#" id="close">
+      <a href="" id="close">
         <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2"><g data-name="close"><rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"/><path d="M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"/></g></g></svg>
       </a>
       
@@ -43,14 +45,14 @@
         <div class="opt-wr">
           <ul class="options">
             <li class="option">
-              <a href="#" class="selected">
+              <a href="" class="selected">
                 <box-icon type='solid' name='bookmark'></box-icon>
                 <span>Favorites</span>
               </a>
             </li>
             
             <li class="option">
-              <a href="#">
+              <a href="">
                 <box-icon name='search'></box-icon>
                 <span>Search</span>
               </a>
@@ -60,13 +62,20 @@
         
         <div class="content">
           <div class="cnt">
-            <a href="#" id="add-fav">
+            <a href="" id="add-fav">
               <box-icon name='plus'></box-icon>
             </a>
           </div>
           
           <div class="cnt">
+            <label for="search-eng">Search Engine:</label>
             
+            <select name="search-eng" id="search-eng-sel">
+              <option value="google">Google</option>
+              <option value="ddg">DuckDuckGo</option>
+              <option value="bing">Bing</option>
+              <option value="brave">Brave</option>
+            </select>
           </div>
         </div>
       </div>

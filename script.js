@@ -11,7 +11,6 @@ const settingsOpts = qsAll("ul li a");
 const contents = qsAll(".cnt");
 
 var settingsOn = false;
-
 var favorites = [];
 
 //const goods = ["Good Morning.", "Good Afternoon.", "Good Evening."];
@@ -81,6 +80,10 @@ function toggleSettings(e) {
   e.preventDefault();
   
   settingsMenu.classList.toggle("set-active");
+}
+
+function search(query, engine) {
+  
 }
 
 function qs(q) {

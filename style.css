@@ -250,6 +250,38 @@ a#add-fav {
   transition: background 0.3s;
 }
 
+.cnt {
+  text-align: left;
+}
+
+.cnt label {
+  margin-left: 10px;
+  display: block;
+}
+
+.cnt select {
+  border: none;
+  outline: none;
+  
+  border-bottom: 1px solid black;
+  width: 95%;
+  
+  margin: 10px;
+  margin-top: 15px;
+  
+  padding: 5px;
+  
+  border-radius: 10px 10px 0 0;
+  
+  transition: background 0.3s;
+}
+
+.cnt select:hover {
+  background: #efefef;
+}
+
+
+
 @keyframes gradient {
   0% {background-position: 0%}
   100% {background-position: 100%}
