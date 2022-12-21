@@ -10,6 +10,7 @@ const contents = qsAll(".cnt");
 const selectSearch = qs("#search-eng-sel");
 const searchBtn = qs("#search-btn");
 const searchBox = qs("#search-box");
+const selfCheckbox = qs("#is-self");
 
 var settingsOn = false;
 var favorites = [];
@@ -80,13 +81,12 @@ addFav.onclick = (e) => {
 searchBtn.onclick = (e) => {
   e.preventDefault();
   
-  search(searchBox.value, selectSearch.value);
+  search(searchBox.value, selectSearch.value, selfCheckbox.checked);
 };
 
 document.addEventListener("keydown", (e) => {
   if (e.keyCode == 13) {
-    search(searchBox.value, selectSearch.value);
-    console.log("a");
+    search(searchBox.value, selectSearch.value, selfCheckbox.checked);
   }
   else if (e.keyCode == 27) {
     settingsMenu.classList.remove("set-active");
@@ -99,8 +99,14 @@ function toggleSettings(e) {
   settingsMenu.classList.toggle("set-active");
 }
 
-function search(query, engine) {
+function search(query, engine, self) {
+  if (query === "" || engine === "") return;
   
+  switch (engine) {
+    case "google":
+      window.open("https://www.google.com/search?q=" + query, self ? "_self" : "_blank");
+      break;
+  }
 }
 
 function qs(q) {

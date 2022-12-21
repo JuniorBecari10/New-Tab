@@ -256,7 +256,6 @@ a#add-fav {
 
 .cnt label {
   margin-left: 10px;
-  display: block;
 }
 
 .cnt select {
@@ -280,7 +279,9 @@ a#add-fav {
   background: #efefef;
 }
 
-
+.cnt input[type="checkbox"] {
+  margin-left: 10px;
+}
 
 @keyframes gradient {
   0% {background-position: 0%}
