@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="clone">
+      <div class="fav-item">
+         <input class="input-fav-name inp-bold" placeholder="Name" spellcheck="false">
+         <input class="input-fav-url" placeholder="URL" spellcheck="false">
+      </div>
+    </div>
+    
     <div class="wrapper"></div>
     
     <div class="card">
@@ -61,13 +68,17 @@
         </div>
         
         <div class="content">
-          <div class="cnt">
+          <div class="cnt"> <!-- favorites -->
+            <div class="fav-list">
+              
+            </div>
+            
             <a href="" id="add-fav">
               <box-icon name='plus'></box-icon>
             </a>
           </div>
           
-          <div class="cnt">
+          <div class="cnt"> <!-- search -->
             <label for="search-eng">Search Engine:</label>
             
             <select name="search-eng" id="search-eng-sel">

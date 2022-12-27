@@ -9,6 +9,7 @@ const addFav = qs("#add-fav");
 const settingsOpts = qsAll("ul li a");
 
 const contents = qsAll(".cnt");
+const clones = qsAll(".clone *")
 
 var settingsOn = false;
 var favorites = [];
