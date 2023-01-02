@@ -16,6 +16,9 @@ const contents = qsAll(".cnt");
 const clones = qsAll(".clone *")
 
 const newTabChk = qs("#open-newtab");
+const showSecChk = qs("#show-sec");
+const dateFullChk = qs("#date-full");
+const dayWeekChk = qs("#day-week");
 
 var settingsOn = false;
 var favorites = [];
@@ -38,9 +41,18 @@ function setup() {
 function update() {
   var d = new Date();
 
-  hour.innerHTML = (d.getHours() < 10 ? "0" : "") + d.getHours() + ":" + (d.getMinutes() < 10 ? "0" : "") + d.getMinutes() + ":" + (d.getSeconds() < 10 ? "0" : "") + d.getSeconds();
-  //date.innerHTML = (d.getDate() < 10 ? "0" : "") + d.getDate() + "/" + (d.getMonth() + 1 < 10 ? "0" : "") + (d.getMonth() + 1) + "/" + d.getFullYear();
-  date.innerHTML = daysWeek[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+  hour.innerHTML = (d.getHours() < 10 ? "0" : "") + d.getHours() + ":" + (d.getMinutes() < 10 ? "0" : "") + d.getMinutes();
+  
+  if (showSecChk.checked)
+    hour.innerHTML += ":" + (d.getSeconds() < 10 ? "0" : "") + d.getSeconds();
+  
+  if (dateFullChk.checked)
+    date.innerHTML = months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+  else
+    date.innerHTML = (d.getMonth() + 1 < 10 ? "0" : "") + (d.getMonth() + 1) + "/" + (d.getDate() < 10 ? "0" : "") + d.getDate() + "/" + d.getFullYear();
+  
+  if (dayWeekChk.checked)
+    date.innerHTML = daysWeek[d.getDay()] + ", " + date.innerHTML;
   
   let hnow = d.getHours(); // hour now
 

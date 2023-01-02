@@ -326,6 +326,11 @@ a#add-fav {
   padding-top: 5px;
 }
 
+.opt-span,
+.cnt h3 {
+  margin-left: 10px;
+}
+
 .cnt input[type="checkbox"] {
   margin-left: 10px;
 }
