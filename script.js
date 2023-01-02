@@ -114,10 +114,13 @@ function search(query, engine) {
       window.open("https://google.com/search?q=" + query, target);
       break;
     case "ddg":
+      window.open("https://duckduckgo.com/?q=" + query, target);
       break;
     case "bing":
+      window.open("https://bing.com/search?q=" + query, target);
       break;
     case "brave":
+      window.open("https://search.brave.com/search?q=" + query, target);
       break;
   }
 }
