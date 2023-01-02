@@ -80,7 +80,7 @@ settingsOpts.forEach((b, i) => {
 searchBtn.onclick = (e) => {
   e.preventDefault();
   
-  search(searchBox.value, searchSel.options[searchSel.selectedIndex].value);
+  search(searchBox.value, searchSel.value);
 };
 
 addFav.onclick = (e) => {

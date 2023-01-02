@@ -319,6 +319,17 @@ a#add-fav {
   font-size: 12pt;
 }
 
+#open-nt-span {
+  display: inline-block;
+  
+  margin-left: 10px;
+  padding-top: 5px;
+}
+
+.cnt input[type="checkbox"] {
+  margin-left: 10px;
+}
+
 @keyframes gradient {
   0% {background-position: 0%}
   100% {background-position: 100%}
