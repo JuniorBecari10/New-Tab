@@ -15,6 +15,8 @@ const settingsOpts = qsAll("ul li a");
 const contents = qsAll(".cnt");
 const clones = qsAll(".clone *")
 
+const newTabChk = qs("#open-newtab");
+
 var settingsOn = false;
 var favorites = [];
 
@@ -105,9 +107,11 @@ function toggleSettings(e) {
 function search(query, engine) {
   if (query === "") return;
   
+  let target = newTabChk.checked ? "_blank" : "_self";
+  
   switch (engine) {
     case "google":
-      window.open("https://google.com/search?q=" + query);
+      window.open("https://google.com/search?q=" + query, target);
       break;
     case "ddg":
       break;
