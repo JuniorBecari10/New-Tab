@@ -212,10 +212,10 @@ li.option a {
 }
 
 li.option a.selected {
-  /*background: #F17C58;*/
+  background: #fff;
   box-shadow: 0 0 20px rgba(0,0,0,30%);
-  
-  animation: bg 16s linear infinite alternate;
+
+  /*animation: bg 16s linear infinite alternate;*/
 }
 
 li.option a:hover:not(.selected) {

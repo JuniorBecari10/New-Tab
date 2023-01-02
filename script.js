@@ -6,6 +6,10 @@ const settingsMenu = qs("#settings-menu");
 const closeBtn = qs("#close");
 const addFav = qs("#add-fav");
 
+const searchBtn = qs("#search");
+const searchSel = qs("#search-eng-sel");
+const searchBox = qs("#search-box");
+
 const settingsOpts = qsAll("ul li a");
 
 const contents = qsAll(".cnt");
@@ -73,6 +77,12 @@ settingsOpts.forEach((b, i) => {
   };
 });
 
+searchBtn.onclick = (e) => {
+  e.preventDefault();
+  
+  search(searchBox.value, searchSel.options[searchSel.selectedIndex].value);
+};
+
 addFav.onclick = (e) => {
   e.preventDefault();
 };
@@ -84,13 +94,23 @@ function toggleSettings(e) {
 }
 
 function search(query, engine) {
-  
+  switch (engine) {
+    case "google":
+      window.open("https://google.com/search?q=" + query);
+      break;
+    case "ddg":
+      break;
+    case "bing":
+      break;
+    case "brave":
+      break;
+  }
 }
 
 function qs(q) {
-  return document.querySelector(q)
+  return document.querySelector(q);
 }
 
 function qsAll(q) {
-  return document.querySelectorAll(q)
+  return document.querySelectorAll(q);
 }
