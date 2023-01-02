@@ -87,6 +87,15 @@ addFav.onclick = (e) => {
   e.preventDefault();
 };
 
+document.addEventListener("keydown", (e) => {
+  if (e.keyCode === 13) {
+    search(searchBox.value, searchSel.value);
+  }
+  else if (e.keyCode === 27) {
+    settingsMenu.classList.remove("set-active");
+  }
+});
+
 function toggleSettings(e) {
   e.preventDefault();
   
@@ -94,6 +103,8 @@ function toggleSettings(e) {
 }
 
 function search(query, engine) {
+  if (query === "") return;
+  
   switch (engine) {
     case "google":
       window.open("https://google.com/search?q=" + query);
