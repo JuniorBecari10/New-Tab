@@ -161,9 +161,9 @@ function readSettings() {
   if (!localStorage["searcheng"]) return;
   
   searchSel.value = localStorage["searcheng"];
-  newTabChk.checked = localStorage["open-nt"];
+  newTabChk.checked = localStorage["open-nt"] === "true";
   
-  showSecChk.checked = localStorage["show-sec"];
-  dateFullChk.checked = localStorage["date-full"];
-  dateFullChk.checked = localStorage["day-week"];
+  showSecChk.checked = localStorage["show-sec"] === "true";
+  dateFullChk.checked = localStorage["date-full"] === "true";
+  dateFullChk.checked = localStorage["day-week"] === "true";
 }
