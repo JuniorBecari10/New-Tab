@@ -23,6 +23,8 @@ const dayWeekChk = qs("#day-week");
 var settingsOn = false;
 var favorites = [];
 
+readSettings();
+
 //const goods = ["Good Morning.", "Good Afternoon.", "Good Evening."];
 const daysWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -114,6 +116,7 @@ function toggleSettings(e) {
   e.preventDefault();
   
   settingsMenu.classList.toggle("set-active");
+  writeSettings();
 }
 
 function search(query, engine) {
@@ -143,4 +146,24 @@ function qs(q) {
 
 function qsAll(q) {
   return document.querySelectorAll(q);
+}
+
+function writeSettings() {
+  localStorage["searcheng"] = searchSel.value;
+  localStorage["open-nt"] = newTabChk.checked;
+  
+  localStorage["show-sec"] = showSecChk.checked;
+  localStorage["date-full"] = dateFullChk.checked;
+  localStorage["day-week"] = dateFullChk.checked;
+}
+
+function readSettings() {
+  if (!localStorage["searcheng"]) return;
+  
+  searchSel.value = localStorage["searcheng"];
+  newTabChk.checked = localStorage["open-nt"];
+  
+  showSecChk.checked = localStorage["show-sec"];
+  dateFullChk.checked = localStorage["date-full"];
+  dateFullChk.checked = localStorage["day-week"];
 }
