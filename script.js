@@ -154,7 +154,7 @@ function writeSettings() {
   
   localStorage["show-sec"] = showSecChk.checked;
   localStorage["date-full"] = dateFullChk.checked;
-  localStorage["day-week"] = dateFullChk.checked;
+  localStorage["day-week"] = dayWeekChk.checked;
 }
 
 function readSettings() {
@@ -165,5 +165,5 @@ function readSettings() {
   
   showSecChk.checked = localStorage["show-sec"] === "true";
   dateFullChk.checked = localStorage["date-full"] === "true";
-  dateFullChk.checked = localStorage["day-week"] === "true";
+  dayWeekChk.checked = localStorage["day-week"] === "true";
 }
