@@ -105,6 +105,14 @@ addFav.onclick = (e) => {
 
 document.addEventListener("keydown", (e) => {
   if (e.keyCode === 13) {
+    if (validURL(searchBox.value)) {
+      let target = newTabChk.checked ? "_blank" : "_self";
+      let ws = searchBox.value.includes("http") ? searchBox.value : "http://" + searchBox.value;
+      
+      window.open(ws, target);
+      return;
+    }
+    
     search(searchBox.value, searchSel.value);
   }
   else if (e.keyCode === 27) {
@@ -166,4 +174,15 @@ function readSettings() {
   showSecChk.checked = localStorage["show-sec"] === "true";
   dateFullChk.checked = localStorage["date-full"] === "true";
   dayWeekChk.checked = localStorage["day-week"] === "true";
+}
+
+// StackOverflow
+function validURL(str) {
+  var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  return pattern.test(str);
 }
