@@ -11,6 +11,7 @@ const searchSel = qs("#search-eng-sel");
 const searchBox = qs("#search-box");
 
 const cancelBtn = qs("#cancel");
+const resetBtn = qs("#reset");
 
 const settingsOpts = qsAll("ul li a");
 
@@ -82,6 +83,10 @@ settings.onclick = (e) => {
 
 closeBtn.onclick = (e) => {
   toggleSettings(e);
+};
+
+resetBtn.onclick = () => {
+  localStorage.clear();
 };
 
 cancel.onclick = () => {

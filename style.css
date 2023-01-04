@@ -340,6 +340,19 @@ a#add-fav {
   padding-top: 5px;
 }
 
+.cta {
+  border: 1px solid black;
+  border-radius: 10px;
+  
+  padding: 5px 20px;
+  
+  transition: box-shadow 0.3s;
+}
+
+.cta:hover {
+  box-shadow: 0 0 20px rgba(0,0,0,30%);
+}
+
 .opt-span,
 .cnt h3 {
   margin-left: 10px;
