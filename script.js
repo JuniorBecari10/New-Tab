@@ -91,6 +91,7 @@ resetBtn.onclick = () => {
 
 cancel.onclick = () => {
   searchBox.value = "";
+  searchBox.focus();
   
   updateCancel();
 };
@@ -136,6 +137,7 @@ document.addEventListener("keydown", (e) => {
   }
   else if (e.keyCode === 27) {
     settingsMenu.classList.remove("set-active");
+    writeSettings();
   }
 });
 
@@ -148,9 +150,9 @@ function toggleSettings(e) {
 
 function updateCancel() {
   if (searchBox.value === "")
-    cancelBtn.style.display = "none";
+    cancelBtn.style.opacity = "0%";
   else
-    cancelBtn.style.display = "initial";
+    cancelBtn.style.opacity = "100%";
 }
 
 function search(query, engine) {

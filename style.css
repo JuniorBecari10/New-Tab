@@ -96,9 +96,9 @@ ul {
   
   border-radius: 5px;
   
-  display: none;
+  opacity: 0;
   
-  transition: background 0.3s;
+  transition: background 0.3s, opacity 0.3s;
 }
 
 #search-box:hover,
