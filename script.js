@@ -69,6 +69,9 @@ function update() {
   if (hnow >= 18)
    good.innerHTML = "Good evening.";
    
+   console.log("a");
+   searchBox.setAttribute("placeholder", "Search with " + getSelectTitle(searchSel.value) + " or enter web address...");
+   
    updateCancel();
    
    setTimeout(function () { update(); }, 1000);
@@ -164,6 +167,19 @@ function search(query, engine) {
     case "brave":
       window.open("https://search.brave.com/search?q=" + query, target);
       break;
+  }
+}
+
+function getSelectTitle(value) {
+  switch (value) {
+    case "google":
+      return "Google";
+    case "ddg":
+      return "DuckDuckGo";
+    case "bing":
+      return "Bing";
+    case "brave":
+      return "Brave";
   }
 }
 
