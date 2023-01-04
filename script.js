@@ -10,6 +10,8 @@ const searchBtn = qs("#search");
 const searchSel = qs("#search-eng-sel");
 const searchBox = qs("#search-box");
 
+const cancelBtn = qs("#cancel");
+
 const settingsOpts = qsAll("ul li a");
 
 const contents = qsAll(".cnt");
@@ -67,6 +69,8 @@ function update() {
   if (hnow >= 18)
    good.innerHTML = "Good evening.";
    
+   updateCancel();
+   
    setTimeout(function () { update(); }, 1000);
 }
 
@@ -76,6 +80,12 @@ settings.onclick = (e) => {
 
 closeBtn.onclick = (e) => {
   toggleSettings(e);
+};
+
+cancel.onclick = () => {
+  searchBox.value = "";
+  
+  updateCancel();
 };
 
 settingsOpts.forEach((b, i) => {
@@ -104,6 +114,8 @@ addFav.onclick = (e) => {
 };
 
 document.addEventListener("keydown", (e) => {
+  updateCancel();
+  
   if (e.keyCode === 13) {
     if (validURL(searchBox.value)) {
       let target = newTabChk.checked ? "_blank" : "_self";
@@ -125,6 +137,13 @@ function toggleSettings(e) {
   
   settingsMenu.classList.toggle("set-active");
   writeSettings();
+}
+
+function updateCancel() {
+  if (searchBox.value === "")
+    cancelBtn.style.display = "none";
+  else
+    cancelBtn.style.display = "initial";
 }
 
 function search(query, engine) {
