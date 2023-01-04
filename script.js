@@ -69,7 +69,6 @@ function update() {
   if (hnow >= 18)
    good.innerHTML = "Good evening.";
    
-   console.log("a");
    searchBox.setAttribute("placeholder", "Search with " + getSelectTitle(searchSel.value) + " or enter web address...");
    
    updateCancel();
