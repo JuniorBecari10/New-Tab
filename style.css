@@ -88,8 +88,22 @@ ul {
   transition: background 0.3s;
 }
 
+#cancel {
+  position: absolute;
+  
+  right: 5%;
+  top: 173px;
+  
+  border-radius: 5px;
+  
+  display: none;
+  
+  transition: background 0.3s;
+}
+
 #search-box:hover,
-a#add-fav:hover {
+a#add-fav:hover,
+#cancel:hover {
   background: #efefef;
 }
 
@@ -324,6 +338,19 @@ a#add-fav {
   
   margin-left: 10px;
   padding-top: 5px;
+}
+
+.cta {
+  border: 1px solid black;
+  border-radius: 10px;
+  
+  padding: 5px 20px;
+  
+  transition: box-shadow 0.3s;
+}
+
+.cta:hover {
+  box-shadow: 0 0 20px rgba(0,0,0,30%);
 }
 
 .opt-span,

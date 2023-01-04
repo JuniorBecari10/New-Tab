@@ -10,6 +10,9 @@ const searchBtn = qs("#search");
 const searchSel = qs("#search-eng-sel");
 const searchBox = qs("#search-box");
 
+const cancelBtn = qs("#cancel");
+const resetBtn = qs("#reset");
+
 const settingsOpts = qsAll("ul li a");
 
 const contents = qsAll(".cnt");
@@ -67,6 +70,10 @@ function update() {
   if (hnow >= 18)
    good.innerHTML = "Good evening.";
    
+   searchBox.setAttribute("placeholder", "Search with " + getSelectTitle(searchSel.value) + " or enter web address...");
+   
+   updateCancel();
+   
    setTimeout(function () { update(); }, 1000);
 }
 
@@ -76,6 +83,16 @@ settings.onclick = (e) => {
 
 closeBtn.onclick = (e) => {
   toggleSettings(e);
+};
+
+resetBtn.onclick = () => {
+  localStorage.clear();
+};
+
+cancel.onclick = () => {
+  searchBox.value = "";
+  
+  updateCancel();
 };
 
 settingsOpts.forEach((b, i) => {
@@ -104,7 +121,17 @@ addFav.onclick = (e) => {
 };
 
 document.addEventListener("keydown", (e) => {
+  updateCancel();
+  
   if (e.keyCode === 13) {
+    if (validURL(searchBox.value)) {
+      let target = newTabChk.checked ? "_blank" : "_self";
+      let ws = searchBox.value.includes("http") ? searchBox.value : "http://" + searchBox.value;
+      
+      window.open(ws, target);
+      return;
+    }
+    
     search(searchBox.value, searchSel.value);
   }
   else if (e.keyCode === 27) {
@@ -117,6 +144,13 @@ function toggleSettings(e) {
   
   settingsMenu.classList.toggle("set-active");
   writeSettings();
+}
+
+function updateCancel() {
+  if (searchBox.value === "")
+    cancelBtn.style.display = "none";
+  else
+    cancelBtn.style.display = "initial";
 }
 
 function search(query, engine) {
@@ -137,6 +171,19 @@ function search(query, engine) {
     case "brave":
       window.open("https://search.brave.com/search?q=" + query, target);
       break;
+  }
+}
+
+function getSelectTitle(value) {
+  switch (value) {
+    case "google":
+      return "Google";
+    case "ddg":
+      return "DuckDuckGo";
+    case "bing":
+      return "Bing";
+    case "brave":
+      return "Brave";
   }
 }
 
@@ -166,4 +213,15 @@ function readSettings() {
   showSecChk.checked = localStorage["show-sec"] === "true";
   dateFullChk.checked = localStorage["date-full"] === "true";
   dayWeekChk.checked = localStorage["day-week"] === "true";
+}
+
+// StackOverflow
+function validURL(str) {
+  var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  return pattern.test(str);
 }

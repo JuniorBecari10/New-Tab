@@ -24,7 +24,7 @@
         <box-icon type='solid' name='cog'></box-icon>
       </a>
       
-      <h2 id="good">Good evening.</h2>
+      <h2 id="good">Good xxx.</h2>
       
       <h1 id="hour">00:00:00</h1>
       <h3 id="date">xxx, xx 00, 0000</h3>
@@ -34,6 +34,10 @@
           <box-icon name='search'></box-icon>
         </a>
         <input type="text" id="search-box" placeholder="Search or enter web address...">
+      </div>
+      
+      <div id="cancel">
+        <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2"><g data-name="close"><rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"/><path d="M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"/></g></g></svg>
       </div>
       
       <div class="favorites">
@@ -71,6 +75,13 @@
                 <span>Date & Time</span>
               </a>
             </li>
+            
+            <li class="option">
+              <a href="">
+                <box-icon name='reset'></box-icon>
+                <span>Reset to Default</span>
+              </a>
+            </li>
           </ul>
         </div>
         
@@ -95,7 +106,7 @@
               <option value="brave">Brave</option>
             </select>
             
-            <span id="open-nt-span">Open Search in a New Tab:</span>
+            <span id="open-nt-span">Open Search/Website in a New Tab:</span>
             <input type="checkbox" id="open-newtab">
           </div>
           
@@ -112,6 +123,12 @@
             
             <span class="opt-span">Show day of the week:</span>
             <input type="checkbox" id="day-week" checked> <br> <br>
+          </div>
+          
+          <div class="cnt">
+            <span class="opt-span">Are you sure?</span> <br> <br>
+            
+            <a href="" class="cta opt-span" id="reset">Yes</a>
           </div>
         </div>
       </div>
