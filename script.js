@@ -42,6 +42,8 @@ function setup() {
     
     contents[i].classList.add("d-none");
   });
+  
+  searchBox.focus();
 }
 
 function update() {
@@ -67,7 +69,7 @@ function update() {
     hour.innerHTML += ":" + (d.getSeconds() < 10 ? "0" : "") + d.getSeconds();
   
   if (use12hChk.checked) {
-    let ampm = d.getHours() == 12 ? "pm" : "am";
+    let ampm = d.getHours() >= 12 ? "pm" : "am";
     
     hour.innerHTML += "<sup>" + ampm + "</sup>";
   }
