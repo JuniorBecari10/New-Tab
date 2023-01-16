@@ -362,6 +362,10 @@ a#add-fav {
   margin-left: 10px;
 }
 
+sup {
+  font-size: 15pt;
+}
+
 @keyframes gradient {
   0% {background-position: 0%}
   100% {background-position: 100%}

@@ -20,6 +20,7 @@ const clones = qsAll(".clone *")
 
 const newTabChk = qs("#open-newtab");
 const showSecChk = qs("#show-sec");
+const use12hChk = qs("#use-12h");
 const dateFullChk = qs("#date-full");
 const dayWeekChk = qs("#day-week");
 
@@ -41,15 +42,37 @@ function setup() {
     
     contents[i].classList.add("d-none");
   });
+  
+  searchBox.focus();
 }
 
 function update() {
   var d = new Date();
-
-  hour.innerHTML = (d.getHours() < 10 ? "0" : "") + d.getHours() + ":" + (d.getMinutes() < 10 ? "0" : "") + d.getMinutes();
+  
+  if (use12hChk.checked) {
+    let hours = d.getHours();
+    let minutes = d.getMinutes();
+    
+    hours = hours % 12;
+    hours = hours ? hours : 12; // '0' is '12'
+    
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    
+    hour.innerHTML = hours + ":" + minutes;
+  }
+  else {
+    hour.innerHTML = (d.getHours() < 10 ? "0" : "") + d.getHours() + ":" + (d.getMinutes() < 10 ? "0" : "") + d.getMinutes();
+  }
   
   if (showSecChk.checked)
     hour.innerHTML += ":" + (d.getSeconds() < 10 ? "0" : "") + d.getSeconds();
+  
+  if (use12hChk.checked) {
+    let ampm = d.getHours() >= 12 ? "pm" : "am";
+    
+    hour.innerHTML += "<sup>" + ampm + "</sup>";
+  }
   
   if (dateFullChk.checked)
     date.innerHTML = months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
@@ -202,6 +225,7 @@ function writeSettings() {
   localStorage["open-nt"] = newTabChk.checked;
   
   localStorage["show-sec"] = showSecChk.checked;
+  localStorage["use-12h"] = use12hChk.checked;
   localStorage["date-full"] = dateFullChk.checked;
   localStorage["day-week"] = dayWeekChk.checked;
 }
@@ -213,6 +237,7 @@ function readSettings() {
   newTabChk.checked = localStorage["open-nt"] === "true";
   
   showSecChk.checked = localStorage["show-sec"] === "true";
+  use12hChk.checked = localStorage["use-12h"] === "true";
   dateFullChk.checked = localStorage["date-full"] === "true";
   dayWeekChk.checked = localStorage["day-week"] === "true";
 }
