@@ -13,6 +13,8 @@ const searchBox = qs("#search-box");
 const cancelBtn = qs("#cancel");
 const resetBtn = qs("#reset");
 
+const favList = qs("#fav-list");
+
 const settingsOpts = qsAll("ul li a");
 
 const contents = qsAll(".cnt");
@@ -142,6 +144,28 @@ searchBtn.onclick = (e) => {
 
 addFav.onclick = (e) => {
   e.preventDefault();
+  
+  let fav = document.createElement("div");
+  fav.classList.add("fav-item");
+  
+  let titleInp = document.createElement("input");
+  titleInp.classList.add("fav-title");
+  titleInp.classList.add("inp-bold");
+  
+  titleInp.placeholder = "Title";
+  
+  let urlInp = document.createElement("input");
+  urlInp.classList.add("fav-title");
+  urlInp.placeholder = "URL";
+  
+  let rmBtn = document.createElement("a");
+  rmBtn.innerHTML = "X";
+  
+  
+  fav.appendChild(titleInp);
+  fav.appendChild(urlInp);
+  
+  favList.appendChild(fav);
 };
 
 document.addEventListener("keydown", (e) => {
